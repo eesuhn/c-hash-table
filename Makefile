@@ -1,4 +1,4 @@
-NAME = ft_ht
+NAME = ft_ht.out
 
 SRC_DIR = srcs/
 SRC = $(wildcard $(SRC_DIR)*.c)
