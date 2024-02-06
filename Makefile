@@ -15,14 +15,8 @@ DEBUG_F = -fsanitize=address
 
 ifeq ($(D), 1)
 	CFLAGS += $(DEBUG_W)
-	CFLAGS += $(DEBUG_F)
-
 else ifeq ($(D), 2)
-	CFLAGS += $(DEBUG_W)
-
-else ifeq ($(D), 3)
 	CFLAGS += $(DEBUG_F)
-
 endif
 
 OUTPUT_DIR = ./
@@ -47,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re
