@@ -33,14 +33,18 @@ static void	ht_del_item(t_ht_item *i)
 void	ht_del_table(t_ht_hash_table *ht)
 {
 	int			i;
-	t_ht_item	*item;
+	// t_ht_item	*item;
 
 	i = -1;
 	while (++i < ht->size)
 	{
+		/*
 		item = ht->items[i];
 		if (item != NULL)
 			ht_del_item(item);
+		*/
+		if (ht->items[i] != NULL)
+			ht_del_item(ht->items[i]);
 	}
 	free(ht->items);
 	free(ht);

@@ -17,6 +17,8 @@ ifeq ($(D), 1)
 	CFLAGS += $(DEBUG_W)
 else ifeq ($(D), 2)
 	CFLAGS += $(DEBUG_F)
+else ifeq ($(D), 3)
+	CFLAGS += $(DEBUG_W) $(DEBUG_F)
 endif
 
 OUTPUT_DIR = ./
