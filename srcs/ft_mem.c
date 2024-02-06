@@ -1,4 +1,4 @@
-#include "../incs/ft_std.h"
+#include "../incs/ft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -1,6 +1,5 @@
 #include "../incs/hash_table.h"
-#include "../incs/ft_std.h"
-#include "../incs/ft_string.h"
+#include "../incs/ft.h"
 
 static t_ht_item	*ht_new_item(const char *k, const char *v)
 {
@@ -33,19 +32,32 @@ static void	ht_del_item(t_ht_item *i)
 void	ht_del_table(t_ht_hash_table *ht)
 {
 	int			i;
-	// t_ht_item	*item;
 
 	i = -1;
 	while (++i < ht->size)
 	{
-		/*
-		item = ht->items[i];
-		if (item != NULL)
-			ht_del_item(item);
-		*/
 		if (ht->items[i] != NULL)
 			ht_del_item(ht->items[i]);
 	}
 	free(ht->items);
 	free(ht);
+}
+
+int	ht_hash(const char *s, const int a, const int m)
+{
+	long			hash;
+	unsigned int	i;
+	size_t			s_len;
+
+	s_len = ft_strlen(s);
+	hash = 0;
+	i = 0;
+	while (i < s_len)
+	{
+		hash += (long) ft_pow(a, s_len - (i + 1)) * (int) s[i];
+		printf("%ld\n", hash);
+		i++;
+	}
+	hash = hash % m;
+	return ((int)hash);
 }
