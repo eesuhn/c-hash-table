@@ -20,6 +20,4 @@ t_ht_hash_table		*ht_new(void);
 
 void				ht_del_table(t_ht_hash_table *ht);
 
-int					ht_hash(const char *s, const int a, const int m);
-
 #endif
