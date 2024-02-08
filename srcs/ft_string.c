@@ -28,8 +28,18 @@ char	*ft_strdup(const char *src)
 
 	size = ft_strlen(src);
 	dup = (char *) malloc(size + 1);
-	if (!dup)
+	if (dup == NULL)
 		return (NULL);
 	ft_strcpy(dup, src);
 	return (dup);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

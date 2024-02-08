@@ -8,17 +8,12 @@ OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
 
 INC = -I includes/
 
-CFLAGS =
+CFLAGS = -g -fsanitize=address
 
 DEBUG_W = -Wall -Wextra -Werror
-DEBUG_F = -fsanitize=address
 
 ifeq ($(D), 1)
 	CFLAGS += $(DEBUG_W)
-else ifeq ($(D), 2)
-	CFLAGS += $(DEBUG_F)
-else ifeq ($(D), 3)
-	CFLAGS += $(DEBUG_W) $(DEBUG_F)
 endif
 
 OUTPUT_DIR = ./
