@@ -38,10 +38,8 @@ void	ht_del_table(t_ht_table *ht)
 
 	i = -1;
 	while (++i < ht->size)
-	{
 		if (ht->items[i] != NULL)
 			ht_del_item(ht->items[i]);
-	}
 	free(ht->items);
 	free(ht);
 }
@@ -129,13 +127,10 @@ void	ht_delete(t_ht_table *ht, const char *key)
 	i = 1;
 	while (item != NULL)
 	{
-		if (item != &g_ht_deleted_item)
+		if (item != &g_ht_deleted_item && !ft_strcmp(item->key, key))
 		{
-			if (!ft_strcmp(item->key, key))
-			{
-				ht_del_item(item);
-				ht->items[index] = &g_ht_deleted_item;
-			}
+			ht_del_item(item);
+			ht->items[index] = &g_ht_deleted_item;
 		}
 		index = ht_get_hash(key, ht->size, i);
 		item = ht->items[index];
