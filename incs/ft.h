@@ -19,8 +19,8 @@ void	*ft_calloc(size_t count, size_t size);
 
 long	ft_pow(int nb, unsigned int pow);
 
-int	ft_is_prime(int nb);
+int		ft_is_prime(int nb);
 
-int	ft_find_next_prime(int nb);
+int		ft_next_prime(int nb);
 
 #endif

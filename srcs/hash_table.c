@@ -13,15 +13,70 @@ static t_ht_item	*ht_new_item(const char *k, const char *v)
 	return (i);
 }
 
-t_ht_table	*ht_new(void)
+static t_ht_table	*ht_new_sized(const int base_size)
 {
 	t_ht_table	*ht;
 
 	ht = (t_ht_table *) malloc(sizeof(t_ht_table));
-	ht->size = 1000;
+	if (ht == NULL)
+		return (NULL);
+	ht->size = ft_next_prime(base_size);
+	ht->base_size = base_size;
 	ht->count = 0;
 	ht->items = ft_calloc((size_t)ht->size, sizeof(t_ht_item *));
+	if (ht->items == NULL)
+		return (NULL);
 	return (ht);
+}
+
+t_ht_table	*ht_new(void)
+{
+	return (ht_new_sized(HT_INIT_BASE_SIZE));
+}
+
+static void	ht_resize(t_ht_table *ht, const int base_size)
+{
+	t_ht_table	*new_ht;
+	int			i;
+	t_ht_item	*item;
+	int			tmp_size;
+	t_ht_item	**tmp_items;
+
+	if (base_size < HT_INIT_BASE_SIZE)
+		return ;
+	new_ht = ht_new_sized(base_size);
+	i = -1;
+	while (++i < ht->size)
+	{
+		item = ht->items[i];
+		if (item != NULL && item != &g_ht_deleted_item)
+			ht_insert(new_ht, item->key, item->value);
+	}
+	ht->base_size = new_ht->base_size;
+	ht->count = new_ht->count;
+	tmp_size = ht->size;
+	ht->size = new_ht->size;
+	new_ht->size = tmp_size;
+	tmp_items = ht->items;
+	ht->items = new_ht->items;
+	new_ht->items = tmp_items;
+	ht_del_table(new_ht);
+}
+
+static void	ht_resize_up(t_ht_table *ht)
+{
+	int	new_size;
+
+	new_size = ht->base_size * 2;
+	ht_resize(ht, new_size);
+}
+
+static void	ht_resize_down(t_ht_table *ht)
+{
+	int	new_size;
+
+	new_size = ht->base_size / 2;
+	ht_resize(ht, new_size);
 }
 
 static void	ht_del_item(t_ht_item *i)
@@ -74,7 +129,11 @@ void	ht_insert(t_ht_table *ht, const char *key, const char *value)
 	int			index;
 	t_ht_item	*cur_item;
 	int			i;
+	int			load;
 
+	load = ht->count * 100 / ht->size;
+	if (load > 70)
+		ht_resize_up(ht);
 	item = ht_new_item(key, value);
 	index = ht_get_hash(item->key, ht->size, 0);
 	cur_item = ht->items[index];
@@ -106,7 +165,7 @@ char	*ht_search(t_ht_table *ht, const char *key)
 	i = 1;
 	while (item != NULL)
 	{
-		if (!ft_strcmp(item->key, key) && item != &g_ht_deleted_item)
+		if (!ft_strcmp(item->key, key))
 			return (item->value);
 		index = ht_get_hash(key, ht->size, i);
 		item = ht->items[index];
@@ -120,7 +179,11 @@ void	ht_delete(t_ht_table *ht, const char *key)
 	int			index;
 	t_ht_item	*item;
 	int			i;
+	int			load;
 
+	load = ht->count * 100 / ht->size;
+	if (load < 10)
+		ht_resize_down(ht);
 	index = ht_get_hash(key, ht->size, 0);
 	item = ht->items[index];
 	i = 1;
@@ -130,6 +193,7 @@ void	ht_delete(t_ht_table *ht, const char *key)
 		{
 			ht_del_item(item);
 			ht->items[index] = &g_ht_deleted_item;
+			break ;
 		}
 		index = ht_get_hash(key, ht->size, i);
 		item = ht->items[index];

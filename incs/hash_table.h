@@ -4,6 +4,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+# define HT_INIT_BASE_SIZE 50
+
 typedef struct s_item
 {
 	char	*key;
@@ -13,6 +15,7 @@ typedef struct s_item
 typedef struct s_hash_table
 {
 	int			size;
+	int			base_size;
 	int			count;
 	t_ht_item	**items;
 }	t_ht_table;
