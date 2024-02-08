@@ -1,6 +1,5 @@
 #include "../incs/hash_table.h"
 #include "../incs/ft.h"
-#include "../incs/prime.h"
 
 static t_ht_item	g_ht_deleted_item = {NULL, NULL};
 
