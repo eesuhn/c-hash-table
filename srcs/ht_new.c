@@ -27,6 +27,11 @@ t_ht_table	*ht_new_sized(const int base_size)
 	return (ht);
 }
 
+/**
+ * To initialize new hash table.
+ * 
+ * @return t_ht_table*
+ */
 t_ht_table	*ht_new(void)
 {
 	return (ht_new_sized(HT_INIT_BASE_SIZE));

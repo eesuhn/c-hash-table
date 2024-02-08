@@ -10,6 +10,11 @@ void	ht_del_item(t_ht_item *i)
 	free(i);
 }
 
+/**
+ * To delete hash table.
+ * 
+ * @param t_ht_table* ht
+ */
 void	ht_del_table(t_ht_table *ht)
 {
 	int	i;

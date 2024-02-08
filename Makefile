@@ -1,4 +1,4 @@
-NAME = ft_ht.a
+NAME = libft_ht.a
 
 SRC_DIR = srcs/
 SRC = $(wildcard $(SRC_DIR)*.c)

@@ -3,6 +3,13 @@
 
 static t_ht_item	g_ht_deleted_item = {NULL, NULL};
 
+/**
+ * To insert new item to hash table.
+ * 
+ * @param t_ht_table* ht
+ * @param const char* key
+ * @param const char* value
+ */
 void	ht_insert(t_ht_table *ht, const char *key, const char *value)
 {
 	t_ht_item	*item;
@@ -32,6 +39,14 @@ void	ht_insert(t_ht_table *ht, const char *key, const char *value)
 	ht->count++;
 }
 
+/**
+ * To search value by key.
+ * 
+ * @param t_ht_table* ht
+ * @param const char* key
+ * 
+ * @return char* value
+ */
 char	*ht_search(t_ht_table *ht, const char *key)
 {
 	int			index;
@@ -52,6 +67,12 @@ char	*ht_search(t_ht_table *ht, const char *key)
 	return (NULL);
 }
 
+/**
+ * To delete item from hash table.
+ * 
+ * @param t_ht_table* ht
+ * @param const char* key
+ */
 void	ht_delete(t_ht_table *ht, const char *key)
 {
 	int			index;
