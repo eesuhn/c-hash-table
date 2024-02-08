@@ -34,11 +34,11 @@ static void	ht_del_item(t_ht_item *i)
 
 void	ht_del_table(t_ht_table *ht)
 {
-	int			i;
+	int	i;
 
 	i = -1;
 	while (++i < ht->size)
-		if (ht->items[i] != NULL)
+		if (ht->items[i] != NULL && ht->items[i] != &g_ht_deleted_item)
 			ht_del_item(ht->items[i]);
 	free(ht->items);
 	free(ht);
