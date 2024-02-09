@@ -4,6 +4,8 @@
 - Collision resolvement with open addressing and double hashing
 - Dynamic bucket size with load management
 
+<i>*all without the use of standard library</i>
+
 #### Setting up is easy
 1. Create a copy `git clone https://github.com/eesuhn/c-hash-table.git`
 2. Navigate to the directory `cd c-hash-table`
