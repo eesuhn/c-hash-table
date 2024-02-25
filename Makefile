@@ -1,35 +1,26 @@
-NAME = libft_ht.a
+NAME := libht.a
 
-SRC_DIR = srcs/
-SRC = $(wildcard $(SRC_DIR)*.c)
+SRCS := $(wildcard srcs/*.c)
 
-OBJ_DIR = build/
-OBJ = $(addprefix $(OBJ_DIR), $(notdir $(SRC:.c=.o)))
+OBJS := $(addprefix build/, $(notdir $(SRCS:.c=.o)))
 
-INC = -I includes/
+INCS := -I incs/
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror
 
-OUTPUT_DIR = ./
-OUTPUT = $(OUTPUT_DIR)$(NAME)
+all: $(NAME)
 
-all: $(OUTPUT)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJ_DIR)
-	cc $(CFLAGS) $(INC) -c $< -o $@
-
-$(OUTPUT): $(OBJ_DIR) $(OBJ)
-	ar rcs $(OUTPUT) $(OBJ)
-	ranlib $(OUTPUT)
+build/%.o: srcs/%.c
+	cc $(FLAGS) $(INCS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(OUTPUT)
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -1,5 +1,5 @@
 *.a
-*.swp
-*.swo
-.vscode
 *.o
+*.sw*
+.vscode
+.DS_Store
