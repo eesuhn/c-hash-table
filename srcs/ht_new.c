@@ -30,7 +30,7 @@ t_ht_table	*ht_new_sized(const int base_size)
 /**
  * To initialize new hash table.
  * 
- * @return t_ht_table*
+ * @return t_ht_table* ht
  */
 t_ht_table	*ht_new(void)
 {

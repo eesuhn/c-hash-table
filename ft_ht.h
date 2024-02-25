@@ -20,7 +20,7 @@ typedef struct s_hash_table
 /**
  * To initialize new hash table.
  * 
- * @return t_ht_table*
+ * @return t_ht_table* ht
  */
 t_ht_table	*ht_new(void);
 
@@ -31,7 +31,7 @@ t_ht_table	*ht_new(void);
  * @param const char* key
  * @param const char* value
  */
-void	ht_insert(t_ht_table *ht, const char *key, const char *value);
+void		ht_insert(t_ht_table *ht, const char *key, const char *value);
 
 /**
  * To search value by key.
@@ -41,7 +41,7 @@ void	ht_insert(t_ht_table *ht, const char *key, const char *value);
  * 
  * @return char* value
  */
-char	*ht_search(t_ht_table *ht, const char *key);
+char		*ht_search(t_ht_table *ht, const char *key);
 
 /**
  * To delete item from hash table.
@@ -49,13 +49,13 @@ char	*ht_search(t_ht_table *ht, const char *key);
  * @param t_ht_table* ht
  * @param const char* key
  */
-void	ht_delete(t_ht_table *ht, const char *key);
+void		ht_delete(t_ht_table *ht, const char *key);
 
 /**
  * To delete hash table.
  * 
  * @param t_ht_table* ht
  */
-void	ht_del_table(t_ht_table *ht);
+void		ht_del_table(t_ht_table *ht);
 
 #endif

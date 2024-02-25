@@ -1,4 +1,4 @@
-NAME := libht.a
+NAME := libft_ht.a
 
 SRCS := $(wildcard srcs/*.c)
 
