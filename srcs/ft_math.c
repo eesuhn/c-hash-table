@@ -1,4 +1,5 @@
 #include "../incs/ft.h"
+#include "../incs/ht.h"
 
 long	ft_pow(int nb, unsigned int pow)
 {

@@ -1,4 +1,5 @@
 #include "../incs/ft.h"
+#include "../incs/ht.h"
 
 size_t	ft_strlen(const char *str)
 {

@@ -1,5 +1,5 @@
-#include "../incs/hash_table.h"
 #include "../incs/ft.h"
+#include "../incs/ht.h"
 
 t_ht_item	*ht_new_item(const char *k, const char *v)
 {
@@ -30,7 +30,7 @@ t_ht_table	*ht_new_sized(const int base_size)
 /**
  * To initialize new hash table.
  * 
- * @return t_ht_table*
+ * @return t_ht_table* ht
  */
 t_ht_table	*ht_new(void)
 {
