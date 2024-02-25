@@ -1,4 +1,4 @@
-## Hash Structure in C
+## Hash Table in C
 
 #### Features: 
 - Collision resolvement with open addressing and double hashing
@@ -6,35 +6,18 @@
 
 <i>*all without the use of standard library</i>
 
-#### Setting up is easy
-1. Create a copy `git clone https://github.com/eesuhn/c-hash-table.git`
-2. Navigate to the directory `cd c-hash-table`
-3. Run `make` to generate static library `libft_ht.a`
+#### Setting up
+1. Run `make` after `git clone`
+2. Compile program with `ft_ht.h`
 
-<i>*For update: run `git pull`, and then `make re`</i>
+_*For update: Run `make re` after `git pull`_
 
-#### Methods (Header file): 
+#### Methods: 
 ```c
-# include <stdlib.h>
-
-typedef struct s_item
-{
-	char	*key;
-	char	*value;
-}	t_ht_item;
-
-typedef struct s_hash_table
-{
-	int			size;
-	int			base_size;
-	int			count;
-	t_ht_item	**items;
-}	t_ht_table;
-
 /**
  * To initialize new hash table.
  * 
- * @return t_ht_table*
+ * @return t_ht_table* ht
  */
 t_ht_table	*ht_new(void);
 
@@ -45,7 +28,7 @@ t_ht_table	*ht_new(void);
  * @param const char* key
  * @param const char* value
  */
-void	ht_insert(t_ht_table *ht, const char *key, const char *value);
+void		ht_insert(t_ht_table *ht, const char *key, const char *value);
 
 /**
  * To search value by key.
@@ -55,7 +38,7 @@ void	ht_insert(t_ht_table *ht, const char *key, const char *value);
  * 
  * @return char* value
  */
-char	*ht_search(t_ht_table *ht, const char *key);
+char		*ht_search(t_ht_table *ht, const char *key);
 
 /**
  * To delete item from hash table.
@@ -63,14 +46,14 @@ char	*ht_search(t_ht_table *ht, const char *key);
  * @param t_ht_table* ht
  * @param const char* key
  */
-void	ht_delete(t_ht_table *ht, const char *key);
+void		ht_delete(t_ht_table *ht, const char *key);
 
 /**
  * To delete hash table.
  * 
  * @param t_ht_table* ht
  */
-void	ht_del_table(t_ht_table *ht);
+void		ht_del_table(t_ht_table *ht);
 ```
 
 <i>I sort of like program in C now :)</i>
