@@ -2,7 +2,6 @@
 # define HT_H
 
 # include <stdlib.h>
-# include <stdio.h>
 
 # define HT_INIT_BASE_SIZE 50
 # define HT_PRIME_1 257
@@ -21,15 +20,6 @@ typedef struct s_hash_table
 	int			count;
 	t_ht_item	**items;
 }	t_ht_table;
-
-size_t	ft_strlen(const char *str);
-char	*ft_strcpy(char *dest, const char *src);
-char	*ft_strdup(const char *src);
-int		ft_strcmp(const char *s1, const char *s2);
-void	*ft_calloc(size_t count, size_t size);
-long	ft_pow(int nb, unsigned int pow);
-int		ft_is_prime(int nb);
-int		ft_next_prime(int nb);
 
 t_ht_item	*ht_new_item(const char *k, const char *v);
 t_ht_table	*ht_new_sized(const int base_size);

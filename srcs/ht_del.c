@@ -1,3 +1,4 @@
+#include "../incs/ft.h"
 #include "../incs/ht.h"
 
 void	ht_del_item(t_ht_item *i)

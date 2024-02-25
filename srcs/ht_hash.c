@@ -1,3 +1,4 @@
+#include "../incs/ft.h"
 #include "../incs/ht.h"
 
 static int	ht_hash(const char *s, const int a, const int m)

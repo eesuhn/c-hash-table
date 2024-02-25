@@ -1,3 +1,4 @@
+#include "../incs/ft.h"
 #include "../incs/ht.h"
 
 static t_ht_item	g_ht_deleted_item = {NULL, NULL};

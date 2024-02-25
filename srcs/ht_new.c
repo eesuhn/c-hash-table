@@ -1,3 +1,4 @@
+#include "../incs/ft.h"
 #include "../incs/ht.h"
 
 t_ht_item	*ht_new_item(const char *k, const char *v)
