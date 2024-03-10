@@ -7,10 +7,8 @@
 <i>*all without the use of standard library</i>
 
 #### Setting up
-1. Run `make` after `git clone`
-2. Compile program with `ft_ht.h`
-
-_*For update: Run `make re` after `git pull`_
+1. Run `make`
+2. Compile program with `ft_ht.h` and `libft_ht.a`
 
 #### Methods: 
 ```c
