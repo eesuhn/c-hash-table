@@ -7,8 +7,8 @@
 <i>*all without the use of standard library</i>
 
 #### Setting up
-1. Run `make`
-2. Compile program with `ft_ht.h` and `libft_ht.a`
+1. Run `make` to compile the library.
+2. Include `ft_ht.h`, and link the library with `-lft_ht` flag.
 
 #### Methods: 
 ```c
